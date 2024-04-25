@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temprature Conversion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <center>
+        <hi>Temprature Converter</hi>
+        <input type="text" id="Fahrenheit" placeholder="Fahrenheit" name="f" value="" />
+        <input type="text" id="Celsius" placeholder="Celsius" name="c" value="" />
+        <button id="Convert" onclick="tempconvert()">Convert</button>
+        <button id="clear">Reset</button>
+
+    </center>
+
+    <!-- <script src="scripts.js"></script> -->
+
+    <script>
+        document.getElementById('clear').onclick = clearform;
+
+        function tempconvert() {
+
+            var Fahrenheit = document.getElementById("Fahrenheit").value;
+            var Celsius = document.getElementById("Celsius").value;
+
+            if (Fahrenheit !== '') {
+                Celsius = (parseFloat(Fahrenheit) - 32) / 1.8;
+            } else {
+                Fahrenheit = (parseFloat(Celsius) * 1.8) + 32;
+            }
+            document.getElementById('Fahrenheit').value = parseFloat(Fahrenheit).toFixed(1);
+            document.getElementById('Celsius').value = parseFloat(Celsius).toFixed(1);
+        }
+        function clearform() {
+            document.getElementById('Fahrenheit').value = '';
+            document.getElementById('Celsius').value = '';
+        }
+
+    </script>
+</body>
+
+</html>
